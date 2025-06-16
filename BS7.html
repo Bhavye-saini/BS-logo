@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bhavye Saini | Thunder Logo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      width: 300%;
+      height: 300%;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+      animation: drift 90s linear infinite;
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    @keyframes drift {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-800px, -800px); }
+    }
+
+    .logo-box {
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    .ring {
+      width: 140px;
+      height: 140px;
+      border: 3px dashed #00ffe1;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      position: relative;
+      box-shadow: 0 0 20px #00ffe188;
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .orb {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      background: #00ffe1;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) rotate(0deg) translateX(70px);
+      animation: orbit 3s linear infinite;
+      box-shadow: 0 0 10px #00ffe1;
+    }
+
+    @keyframes orbit {
+      to { transform: translate(-50%, -50%) rotate(360deg) translateX(70px); }
+    }
+
+    .core {
+      font-size: 34px;
+      font-weight: bold;
+      color: #00ffe1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: glitch 1.5s infinite;
+      z-index: 2;
+    }
+
+    @keyframes glitch {
+      0%, 100% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      50% { text-shadow: 1px 1px lime, -1px -1px magenta; }
+    }
+
+    .name {
+      margin-top: 12px;
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #00ffe1;
+      animation: type 5s steps(12, end) infinite, blink 0.7s step-end infinite;
+    }
+
+    @keyframes type {
+      0%, 10% { width: 0; }
+      30%, 60% { width: 220px; }
+      90%, 100% { width: 0; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .zap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 2px;
+      background: #00ffe1;
+      opacity: 0;
+      transform-origin: left center;
+      clip-path: polygon(0 50%, 10% 45%, 20% 55%, 30% 45%, 40% 55%, 50% 45%, 60% 55%, 70% 45%, 80% 55%, 90% 45%, 100% 50%);
+      box-shadow: 0 0 10px #00ffe1;
+    }
+
+    .zap:nth-child(3) {
+      animation: flash 0.2s ease-in-out infinite;
+      transform: rotate(25deg) translateX(90px);
+    }
+
+    .zap:nth-child(4) {
+      animation: flash 0.25s ease-in-out infinite;
+      transform: rotate(-40deg) translateX(60px);
+    }
+
+    .zap:nth-child(5) {
+      animation: flash 0.3s ease-in-out infinite;
+      transform: rotate(75deg) translateX(70px);
+    }
+
+    @keyframes flash {
+      0%, 100% { opacity: 0; transform: scaleX(0.2); }
+      50% { opacity: 1; transform: scaleX(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-box">
+    <div class="ring">
+      <div class="orb"></div>
+      <div class="core">BS</div>
+      <div class="zap"></div>
+      <div class="zap"></div>
+      <div class="zap"></div>
+    </div>
+    <div class="name">Bhavye Saini</div>
+  </div>
+</body>
+</html>
